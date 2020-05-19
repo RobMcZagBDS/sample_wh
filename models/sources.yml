@@ -1,0 +1,39 @@
+version: 2
+sources:
+  - name: spytm
+    description: these are foreign tables on the SPYTM database
+    schema: spytm
+    tables:
+      - name: daily_quote
+        description: interday quotes of possibly differend granularity
+        tests:
+          - unique:
+              column_name: "concat(provider,quotetype,symbol,date)"
+        columns:
+          - name: provider
+            description: the data provider
+            tests:
+              - not_null
+          - name: quotetype
+            description: the type of quote, indicating the frequency and content
+            tests:
+              - accepted_values:
+                  values: ['DAILY_ADJUSTED', 'DAILY']
+          - name: symbol
+            description: the symbol of the stock the quote is about
+            tests:
+                - not_null
+          - name: date
+            description: the date the quote refers to
+            tests:
+                - not_null
+          - name: open
+            description: the stock opening price in the specific date
+            tests:
+                - not_null
+          - name: close
+            description: the stock closing price in the specific date
+            tests:
+                - not_null
+
+      - name: time_serie_metadata

@@ -1,0 +1,1 @@
+select * from {{ source('spytm', 'time_serie_metadata') }}
