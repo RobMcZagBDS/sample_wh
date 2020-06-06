@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-Fixing grants, name: 'spytm_wh'
+name: 'spytm_wh'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
@@ -23,6 +23,17 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "target"
     - "dbt_modules"
 
+
+# run hooks
+on-run-start:
+  - "ALTER DEFAULT PRIVILEGES FOR USER dbt_executor GRANT ALL ON SCHEMAS TO dw_owner WITH GRANT OPTION;"
+  - "ALTER DEFAULT PRIVILEGES FOR USER dbt_executor GRANT ALL ON TABLES TO dw_owner WITH GRANT OPTION;"
+
+# Configuring seeds
+seeds:
+  spytm_wh:
+    enabled: true
+    schema: seeds
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
