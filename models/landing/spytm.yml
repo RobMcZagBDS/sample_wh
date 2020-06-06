@@ -1,7 +1,7 @@
 version: 2
 sources:
   - name: spytm
-    description: these are foreign tables on the SPYTM database
+    description: these are foreign tables on the SPYTM database, landing in the spytm schema
     schema: spytm
     tables:
       - name: daily_quote
