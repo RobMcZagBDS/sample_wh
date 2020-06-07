@@ -1,0 +1,8 @@
+symbol,description,exchange,type,underlying,multiplier,minimum,expiration
+AM,Antero Midstream,NYSE,stock,,1,1,
+AR C 15 JAN 2021 1.00,AR C 15 JAN 2021 1.00,CBOE,option,AR,100,1,2021-01-15
+Pemex Project Fdg 5.5% 2005-25,Pemex Project Fdg 5.5% 2005-25,MTS,bond,PEMEX,1,10000,2025-02-24
+EIB 7.25% 2017-21 (BRL),EIB 7.25% 2017-21 (BRL),MTS,bond,EIB,1,5000,2021-06-28
+Ital Ministry of Fin 5.375% 2003-33,Ital Ministry of Fin 5.375% 2003-33,MTS,bond,IT,1,1000,2033-06-15
+MLPD,Invesco Morningstar US Energy MLP -B-,MTA,ETF,,1,1,
+HSI,Lyxor ETF Hong Kong HSI,MTA,ETF,,1,1,
