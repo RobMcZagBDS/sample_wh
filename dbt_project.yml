@@ -33,7 +33,18 @@ on-run-start:
 seeds:
   spytm_wh:
     enabled: true
+    quote_columns: false
     schema: seeds
+    exchange:
+      column_types:
+        Open: time
+        Close: time
+        Open_UTC: time
+        Close_UTC: time
+    exchange_ib:
+      column_types:
+        open: time
+        close: time
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
