@@ -1,4 +1,4 @@
-WITH quotes AS (
+WITH raw_quotes AS (
     SELECT * FROM {{ source('spytm', 'daily_quote') }}
 )
 SELECT
@@ -21,5 +21,5 @@ SELECT
     (max(date)||' 16:30:00.000')::timestamp as LOAD_TS,
     min(date) as EFFECTIVE_FROM,
     {{ dbt_utils.surrogate_key(['symbol']) }} as SECURITY_PK
-FROM quotes
+FROM raw_quotes
 GROUP BY symbol
