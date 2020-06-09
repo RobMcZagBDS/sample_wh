@@ -15,14 +15,14 @@ Indonesia Stock Exchange,IDX,Indonesia,Jakarta,WIB,7,,09:00,16:00,12:00-13:30 (M
 Hochiminh Stock Exchange,HOSE,Vietnam,Hochiminh,ICT,7,,09:00,14:45,11:30-13:00,02:00,07:45,04:30-06:00
 Hanoi Stock Exchange,HNX,Vietnam,Hanoi,ICT,7,,09:00,14:45,11:30-13:00,02:00,07:45,04:30-06:00
 Stock Exchange of Thailand,SET,Thailand,Bangkok,ICT,7,,10:00,16:30,12:30-14:30,03:00,09:30,05:30-07:30
-Bombay Stock Exchange,BSE,India,Mumbai,IST,+5.5,,09:15,15:30,No,03:45,10:00,No
-National Stock Exchange of India,NSE,India,Mumbai,IST,+5.5,,09:15,15:30,No,03:45,10:00,No
-Colombo Stock Exchange,CSE,Sri Lanka,Colombo,SLST,+5.5,,09:30,14:30,No,04:00,09:00,No
+Bombay Stock Exchange,BSE,India,Mumbai,IST,5.5,,09:15,15:30,No,03:45,10:00,No
+National Stock Exchange of India,NSE,India,Mumbai,IST,5.5,,09:15,15:30,No,03:45,10:00,No
+Colombo Stock Exchange,CSE,Sri Lanka,Colombo,SLST,5.5,,09:30,14:30,No,04:00,09:00,No
 Chittagong Stock Exchange,CSE,Bangladesh,Chittagong,BST,6,,10:30,14:30,No,04:30,08:30,No
 Dhaka Stock Exchange,DSE,Bangladesh,Dhaka,BST,6,,10:30,14:30,No,04:30,08:30,No
 Pakistan Stock Exchange,PSX,Pakistan,Karachi,PKT,5,,09:30,15:30,No,04:30,10:30,No
 Dar es Salaam Stock Exchange,DSE,Tanzania,Dar es Salaam,EAT,3,,08:00,17:00,No,05:00,14:00,No
-Tehran Stock Exchange,TSE,Iran,Tehran,IRST,+3.5,,09:00,12:30,No,05:30,09:00,No
+Tehran Stock Exchange,TSE,Iran,Tehran,IRST,3.5,,09:00,12:30,No,05:30,09:00,No
 Armenia Securities Exchange,AMX,Armenia,Yerevan,AMT,4,,10:00,15:00,No,06:00,11:00,No
 Nairobi Securities Exchange,NSE,Kenya,Nairobi,EAT,3,,09:30,15:00,No,06:30,12:00,No
 Saudi Stock Exchange,TADAWUL,Saudi Arabia,Riyadh,AST,3,,10:00,15:00,No,07:00,12:00,No
