@@ -19,7 +19,7 @@ SELECT
     avg(volume) as avg_volume,
     'spytm.daily_quote' as RECORD_SOURCE,
     (max(date)||' 16:30:00.000')::timestamp as LOAD_TS,
-    min(date) as EFFECTIVE_FROM,
+    max(date) as EFFECTIVE_FROM,
     {{ dbt_utils.surrogate_key(['symbol']) }} as SECURITY_PK
 FROM raw_quotes
 GROUP BY symbol
