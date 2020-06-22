@@ -1,4 +1,6 @@
 
+{{ config(materialized='incremental') }}
+
 {{  dbtvault.sat(
         src_pk = 'DAILY_QUOTE_PK',
 

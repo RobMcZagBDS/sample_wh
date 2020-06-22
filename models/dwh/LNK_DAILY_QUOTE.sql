@@ -1,4 +1,6 @@
 
+{{ config(materialized='incremental') }}
+
 {{  dbtvault.link(
         src_pk = 'DAILY_QUOTE_PK',
         src_fk = ['SECURITY_PK', 'date'],

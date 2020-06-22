@@ -1,14 +1,14 @@
 WITH
-sat as (
-    SELECT * FROM {{ ref('SAT_DAILY_QUOTE') }}
-),
 lnk as (
     SELECT * FROM {{ ref('LNK_DAILY_QUOTE') }}
+),
+sat as (
+    SELECT * FROM {{ ref('SAT_DAILY_QUOTE') }}
 )
 SELECT
     lnk.security_pk,
-    sat.symbol,
-    lnk.date,
+    sat.symbol,         -- stored in sat to avoid HUB lookup
+    sat.date,           -- stored in sat to avoid HUB lookup
     sat.open,
     sat.close,
     sat.low,

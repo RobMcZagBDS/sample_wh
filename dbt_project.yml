@@ -29,7 +29,7 @@ on-run-start:
   - "ALTER DEFAULT PRIVILEGES FOR USER dbt_executor GRANT ALL ON SCHEMAS TO dw_owner WITH GRANT OPTION;"
   - "ALTER DEFAULT PRIVILEGES FOR USER dbt_executor GRANT ALL ON TABLES TO dw_owner WITH GRANT OPTION;"
 
-# Configuring seeds
+# Configuring seed column types
 seeds:
   spytm_wh:
     enabled: true
