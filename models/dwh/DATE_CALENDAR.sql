@@ -37,10 +37,10 @@ calculation as (
         TO_CHAR(date_day, 'Dy') AS day_name,
         TO_CHAR(date_day, 'Mon') AS month_name,
 
-        EXTRACT(day FROM date_day) AS day_actual,
-        EXTRACT(month FROM date_day) AS month_actual,
-        EXTRACT(quarter FROM date_day) AS quarter_actual,
-        EXTRACT(year FROM date_day) AS year_actual,
+        EXTRACT(day FROM date_day)::int AS day,
+        EXTRACT(month FROM date_day)::int AS month,
+        EXTRACT(quarter FROM date_day)::int AS quarter_number,
+        EXTRACT(year FROM date_day)::int AS year,
 
         DATE_TRUNC('week', date_day)::DATE as first_day_of_week,  -- Mon
         (DATE_TRUNC('week', date_day) + INTERVAL '1 WEEK - 1 day')::DATE as last_day_of_week,  -- Mon  based ???
@@ -54,17 +54,17 @@ calculation as (
         DATE_TRUNC('year', date_day)::DATE AS first_day_of_year,
         (DATE_TRUNC('year', date_day) + INTERVAL '1 YEAR - 1 day')::DATE AS last_day_of_year,
 
-        EXTRACT(week FROM date_day) AS week_of_year,
+        EXTRACT(week FROM date_day)::int AS week_of_year,
 
         -- The year to which the week belongs to, according to ISO rules.
-        EXTRACT(isoyear FROM date_day) AS year_of_week,
+        EXTRACT(isoyear FROM date_day)::int AS year_of_week,
 
-        EXTRACT(ISODOW FROM date_day) AS day_of_week, -- Day of week =>  Mon 1 - Sun 7
-        EXTRACT(doy FROM date_day) AS day_of_year,
+        EXTRACT(ISODOW FROM date_day)::int AS day_of_week, -- Day of week =>  Mon 1 - Sun 7
+        EXTRACT(doy FROM date_day)::int AS day_of_year,
 
-        EXTRACT(DAY FROM (date_day - DATE_TRUNC('quarter', date_day))) +1 AS day_of_quarter,
-        EXTRACT(DAY FROM (DATE_TRUNC('quarter', date_day + INTERVAL '3 MONTH') - DATE_TRUNC('quarter', date_day))) AS days_in_quarter,
-        EXTRACT(DAY FROM (DATE_TRUNC('year', date_day + INTERVAL '1 YEAR') - DATE_TRUNC('year', date_day))) AS days_in_year,
+        EXTRACT(DAY FROM (date_day - DATE_TRUNC('quarter', date_day)))::int +1 AS day_of_quarter,
+        EXTRACT(DAY FROM (DATE_TRUNC('quarter', date_day + INTERVAL '3 MONTH') - DATE_TRUNC('quarter', date_day)))::int AS days_in_quarter,
+        EXTRACT(DAY FROM (DATE_TRUNC('year', date_day + INTERVAL '1 YEAR') - DATE_TRUNC('year', date_day)))::int AS days_in_year,
 
         /* ** HOLIDAYS ** */
         (CASE   WHEN EXTRACT(MONTH FROM date_day) = 1 AND EXTRACT(DAY FROM date_day) = 1 THEN 'New Year''s Day'
@@ -76,6 +76,7 @@ calculation as (
 )
 SELECT
     calculation.*,
-    (year_actual || '-Q' || EXTRACT(QUARTER FROM date_day)) AS quarter_name,
+    ('Q' || quarter_number) AS quarter,
+    (year || '-Q' || quarter_number) AS year_quarter,
     (CASE WHEN HOLIDAY_DESC IS NULL THEN 0 ELSE 1 END)::boolean AS is_holiday
 FROM calculation
